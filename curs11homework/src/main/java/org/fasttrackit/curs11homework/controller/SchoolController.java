@@ -5,6 +5,7 @@ import org.fasttrackit.curs11homework.model.Student;
 import org.fasttrackit.curs11homework.model.Teacher;
 import org.fasttrackit.curs11homework.model.TeacherEvaluationScore;
 import org.fasttrackit.curs11homework.service.SchoolService;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
