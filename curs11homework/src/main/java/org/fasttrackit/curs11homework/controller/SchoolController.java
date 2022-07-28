@@ -17,22 +17,31 @@ public class SchoolController {
     private final SchoolService service;
 
     @GetMapping("school-info")
-    public String info(){
+    public String info() {
         return "This information is related to the school";
     }
 
     @GetMapping("students")
-    public List<Student> students(){
-        return service.getAllStudents();
+    public List<Student> students() {
+        return List.of(new Student(null, "Ionut", 23),
+                new Student(null, "Alex", 17),
+                new Student(null, "Sorin", 35)
+        );
     }
 
     @PostMapping("students")
-    public Student addStudent(@RequestBody Student student){
-        return service.add(student);
+    public String addStudent() {
+        return "Student added";
     }
 
-//    @PostMapping
-//    public TeacherEvaluationScore addScore(){
-//
-//    }
+    @PostMapping("teacher-evaluation")
+    public String addScore() {
+        return "Score for teacher added";
+    }
+
+    @PostMapping("teachers-adds")
+    public String addTeacher() {
+        return "Score for teacher added";
+    }
+
 }
