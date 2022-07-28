@@ -16,9 +16,9 @@ public class SecurityConfig {
                         authz -> authz
                                 .mvcMatchers("/school-info").permitAll()
                                 .mvcMatchers("/students").authenticated()
-                                .mvcMatchers(HttpMethod.POST,"/students").hasAnyRole("TEACHER","DIRECTOR")
-                                .mvcMatchers(HttpMethod.POST,"/teacher-evaluation").hasRole("STUDENT")
-                                .mvcMatchers(HttpMethod.POST,"/teachers").hasRole("DIRECTOR")
+                                .mvcMatchers(HttpMethod.POST,"/students").hasAnyRole("ROLE_TEACHER","ROLE_DIRECTOR")
+                                .mvcMatchers(HttpMethod.POST,"/teacher-evaluation").hasRole("ROLE_STUDENT")
+                                .mvcMatchers(HttpMethod.POST,"/teachers").hasRole("ROLE_DIRECTOR")
                                 .anyRequest().denyAll()
 
                 )
