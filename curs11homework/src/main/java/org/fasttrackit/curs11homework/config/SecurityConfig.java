@@ -7,7 +7,7 @@ import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.web.SecurityFilterChain;
 
-@ConfigurationProperties("roleconfig")
+@Configuration
 public class SecurityConfig {
     @Bean
     SecurityFilterChain httpSecurityConfig(HttpSecurity http) throws Exception {
