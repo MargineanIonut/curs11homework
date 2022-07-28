@@ -3,9 +3,6 @@ package org.fasttrackit.curs11homework.controller;
 import lombok.RequiredArgsConstructor;
 import org.fasttrackit.curs11homework.model.Student;
 import org.fasttrackit.curs11homework.model.Teacher;
-import org.fasttrackit.curs11homework.model.TeacherEvaluationScore;
-import org.fasttrackit.curs11homework.service.SchoolService;
-import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,7 +12,6 @@ import java.util.List;
 @RequiredArgsConstructor
 public class SchoolController {
 
-    private final SchoolService service;
 
     @GetMapping("school-info")
     public String info() {
@@ -24,25 +20,25 @@ public class SchoolController {
 
     @GetMapping("students")
     public List<Student> students() {
-        return List.of(new Student(null, "Ionut", 23),
-                new Student(null, "Alex", 17),
-                new Student(null, "Sorin", 35)
+        return List.of(new Student( "Ionut", 23),
+                new Student( "Alex", 17),
+                new Student( "Sorin", 35)
         );
     }
 
     @PostMapping("students")
-    public String addStudent() {
-        return "Student added";
+    public Student addStudent() {
+        return new Student("Student",23);
     }
 
     @PostMapping("teacher-evaluation")
-    public String addScore() {
-        return "Score for teacher added";
+    public Integer addScore(@RequestParam Integer score) {
+        return score;
     }
 
     @PostMapping("teachers-adds")
-    public String addTeacher() {
-        return "Score for teacher added";
+    public Teacher addTeacher(@RequestBody Teacher teacher) {
+        return new Teacher(teacher.name(),teacher.age(), teacher.discipline());
     }
 
 }
