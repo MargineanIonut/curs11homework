@@ -36,7 +36,7 @@ public class SchoolController {
         return score;
     }
 
-    @PostMapping("teachers-adds")
+    @PostMapping("teachers")
     public Teacher addTeacher(@RequestBody Teacher teacher) {
         return new Teacher(teacher.name(),teacher.age(), teacher.discipline());
     }
